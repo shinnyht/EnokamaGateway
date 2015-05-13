@@ -6,7 +6,7 @@ var password = "pAnAke!o";
 
 // (EDIT) Prepare varibles (but these cannot be used in processing.js)
 var EnoshimaSensorInfo = {};
-EnoshimaSensorInfo.sunsetTime = "";
+EnoshimaSensorInfo.sunsetTime = "--:--";
 
 /*
  * (EDIT) Prepare getter methods to call from processing.js
@@ -26,6 +26,11 @@ function eventListener(device, transducer) {
          * (EDIT) change below statements depending on
          * which TRANSDUCER & what VALUE you want to use
          */
+        if (typeof transducer.sensorData === "undefined") {
+            status("Data undefined");
+            return;
+        }
+
         if (transducer.id == "日の入") {
             EnoshimaSensorInfo.sunsetTime = transducer.sensorData.rawValue;
         }

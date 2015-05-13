@@ -6,7 +6,7 @@ var password = "pAnAke!o";
 
 // (EDIT) Prepare varibles (but these cannot be used in processing.js)
 var EnoshimaSensorInfo = {};
-EnoshimaSensorInfo.specialDay = "何の日";
+EnoshimaSensorInfo.specialDay = "---";
 
 /*
  * (EDIT) Prepare getter methods to call from processing.js
@@ -26,6 +26,11 @@ function getWordCount() {
 function eventListener(device, transducer) {
     // (EDIT) check if the DEVICE name is the one you want
     if(device=="今日は何の日4"){
+        if (typeof transducer.sensorData === "undefined") {
+            status("Data undefined");
+            return;
+        }
+
         if (transducer.id == "summary") {
             var value = String(transducer.sensorData.rawValue);
             EnoshimaSensorInfo.specialDay = value;

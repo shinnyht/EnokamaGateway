@@ -21,11 +21,16 @@ function getEnoshimaWindSpeed() {
 // Called when received sensor data
 function eventListener(device, transducer) {
     // (EDIT) check if the DEVICE name is the one you want
-    if(device=="江ノ島ヨットハーバー"){
+    if(device=="EnoshimaYachtHarbour"){
         /*
          * (EDIT) change below statements depending on
          * which TRANSDUCER & what VALUE you want to use
          */
+        if (typeof transducer === "undefined") {
+            status("Data undefined");
+            return;
+        }
+
         if (transducer.id == "平均風速") {
             EnoshimaSensorInfo.windSpeed = transducer.sensorData.rawValue;
         }
@@ -42,7 +47,7 @@ $(document).ready(function() {
         status("Connected: " + soxEvent.soxClient);
         client.unsubscribeAll();
 
-        var device = new Device("江ノ島ヨットハーバー");
+        var device = new Device("EnoshimaYachtHarbour");
 
         if (!client.subscribeDevice(device)) {
             status("[SoxClient.js] Counldn't subscribe device: " + soxEvent.soxClient);

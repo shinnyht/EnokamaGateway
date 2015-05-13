@@ -38,6 +38,11 @@ function eventListener(device, transducer) {
          * (EDIT) change below statements depending on
          * which TRANSDUCER & what VALUE you want to use
          */
+        if (typeof transducer.sensorData === "undefined") {
+            status("Data undefined");
+            return;
+        }
+
         if (transducer.id == "天気") {
             var value = String(transducer.sensorData.rawValue);
 
@@ -62,16 +67,20 @@ function eventListener(device, transducer) {
         }
 
     }
-    else if (device=="江ノ島ヨットハーバー") {
+    else if (device=="EnoshimaYachtHarbour") {
         /*
          * (EDIT) change below statements depending on
          * which TRANSDUCER & what VALUE you want to use
          */
+        if (typeof transducer.sensorData === "undefined") {
+            status("Data undefined");
+            return;
+        }
+
         if (transducer.name == "気温") {
             var value = String(transducer.sensorData.rawValue);
             EnoshimaSensorInfo.temperature = value;
         }
-        
         if (transducer.name == "湿度") {
             var value = String(transducer.sensorData.rawValue);
             EnoshimaSensorInfo.humidity = value;
@@ -88,7 +97,7 @@ $(document).ready(function() {
         status("Connected: " + soxEvent.soxClient);
         client.unsubscribeAll();
 
-        var deviceNames = ["江ノ島今日の天気", "江ノ島ヨットハーバー"];
+        var deviceNames = ["江ノ島今日の天気", "EnoshimaYachtHarbour"];
 
         if (!client.subscribeDevice()) {
             status("[SoxClient.js] Counldn't subscribe device: " + soxEvent.soxClient);
