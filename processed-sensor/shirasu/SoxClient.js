@@ -28,6 +28,11 @@ function eventListener(device, transducer) {
          * (EDIT) change below statements depending on
          * which TRANSDUCER & what VALUE you want to use
          */
+        if (typeof transducer.sensorData === "undefined") {
+            status("Data undefined");
+            return;
+        }
+
         if (transducer.id == "入荷情報") {
             EnoshimaSensorInfo.shirasu = transducer.sensorData.rawValue;
 
