@@ -2,6 +2,9 @@
 ## Requirements
 - nodejs
 
+## Fetch submodule repository
+`$ git submodule update --init`
+
 ## Install Bower (Mac)
 `$ npm install -g bower`
 
