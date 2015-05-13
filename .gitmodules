@@ -1,0 +1,3 @@
+[submodule "SoxJS"]
+	path = SoxJS
+	url = git@github.com:htlab/SoxJS.git
