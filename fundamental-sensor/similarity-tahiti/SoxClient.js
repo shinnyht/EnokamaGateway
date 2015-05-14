@@ -119,7 +119,7 @@ function eventListener(device, transducer) {
 	}else if(device=="タヒチ今日の天気"){
 		if (transducer.id == "天気") {
 			var valueH = String(transducer.sensorData.rawValue);
-			if (valuHH.indexOf("晴") > -1 && valueH.indexOf("曇") > -1) {
+			if (valueH.indexOf("晴") > -1 && valueH.indexOf("曇") > -1) {
 				EnoshimaSensorInfo.weatherH = 1;
 			}
 			else if (valueH.indexOf("雨") > -1 && valueH.indexOf("雲") > -1){
