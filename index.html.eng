@@ -1,45 +1,49 @@
 <html style="background-color: black;">
 <head>
-	<!-- <title>ClouT Enoshimap Demo</title> -->
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-	<meta http-equiv="Content-Script-Type" content="text/javascript; charset=utf-8">
-	<title>ClouT Enoshimap Demo</title>
-	<script src="./dist/Enoshimap.js"></script>
-	<style type="text/css">
-		<!--
-		* {
-			color: white;
-		}
-		body {
-			background-color: black;
-		}
-		-->
-	</style>
+    <!-- <title>ClouT Enoshimap Demo</title> -->
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="Content-Script-Type" content="text/javascript; charset=utf-8">
+    <title>ClouT Enoshimap Demo</title>
+    <script src="./dist/Enoshimap.js"></script>
+    <style type="text/css">
+        <!--
+        * {
+            color: white;
+        }
+        body {
+            background-color: black;
+        }
+        -->
+    </style>
 </head>
 <body>
-	<h1>Enoshima Contents Demo</h1>
-	<h2>Fundamental Sensor Demo (usa)</h2>
-	<ul>
-		<li><a href="./fundamental-sensor/realtime-weather/index.html">How is the weather now?</a></li>
-		<li><a href="./fundamental-sensor/weather/index.html">How is the weather?</a></li>
-		<li><a href="./fundamental-sensor/nextday-weather/index.html">How is the weather tomorrow?</a></li>
-		<li><a href="./fundamental-sensor/depart/index.html">When will Enoden leave?</a></li>
-		<li><a href="./fundamental-sensor/wind/index.html">Will I be blown away?</a></li>
-		<!--		<li><a href="./fundamental-sensor/star/index.html">Can we see the stars tonight?</a></li>-->
-		<li><a href="./fundamental-sensor/sunset/index.html">When can I see the sunset today?</a></li>
-		<li><a href="./fundamental-sensor/ultraviolet/index.html">Sunscreen?</a></li>
-		<li><a href="./fundamental-sensor/specialday/index.html">Specialday?</a></li>
-		<li><a href="./fundamental-sensor/flower/index.html">What's todays flower?</a></li>
-	</ul>
-	<h2>Processed Sensor Demo (shinny)</h2>
-	<ul>
-		<li><a href="./processed-sensor/train/index.html">Check Train status</a></li>
-		<li><a href="./processed-sensor/star/index.html">How is the star today?</a></li>
-		<li><a href="./processed-sensor/condition/index.html">How is it in Enoshima?</a></li>
-		<li><a href="./processed-sensor/shirasu/index.html">Can we eat shirasu today?</a></li>
-		<li><a href="./processed-sensor/GetAllDevices/index.html">Get all devices</a></li>
-	</ul>
-	<canvas data-processing-sources="./fundamental-sensor/depart/depart.pde"></canvas>
-	
+    <h1>Enoshima Contents Demo</h1>
+    <h2>Fundamental Sensor Demo (usa)</h2>
+    <ul>
+        <li><a href="./fundamental-sensor/similarity-hawaii/index.html">How much is it similar to Hawaii?</a></li>
+        <li><a href="./fundamental-sensor/realtime-weather/index.html">How is the weather now?</a></li>
+        <li><a href="./fundamental-sensor/weather/index.html">How is the weather?</a></li>
+        <li><a href="./fundamental-sensor/nextday-weather/index.html">How is the weather tomorrow?</a></li>
+        <li><a href="./fundamental-sensor/wind/index.html">Will I be blown away?</a></li>
+        <!--
+        <li><a href="./fundamental-sensor/depart/index.html">When will Enoden leave?</a></li>
+        <li><a href="./fundamental-sensor/star/index.html">Can we see the stars tonight?</a></li>
+        -->
+        <li><a href="./fundamental-sensor/similarity-tahiti/index.html">How much is it similar to Tahiti?</a></li>
+        <li><a href="./fundamental-sensor/sunset/index.html">When can I see the sunset today?</a></li>
+        <li><a href="./fundamental-sensor/ultraviolet/index.html">Sunscreen?</a></li>
+        <li><a href="./fundamental-sensor/specialday/index.html">Specialday?</a></li>
+        <li><a href="./fundamental-sensor/flower/index.html">What's todays flower?</a></li>
+    </ul>
+    <h2>Processed Sensor Demo (shinny)</h2>
+    <ul>
+        <li><a href="./processed-sensor/train/index.html">Check Train status</a></li>
+        <li><a href="./processed-sensor/star/index.html">How is the star today?</a></li>
+        <li><a href="./processed-sensor/condition/index.html">How is it in Enoshima?</a></li>
+        <li><a href="./processed-sensor/shirasu/index.html">Can we eat shirasu today?</a></li>
+        <li><a href="./processed-sensor/GetAllDevices/index.html">Get all devices</a></li>
+    </ul>
+    <canvas data-processing-sources="./fundamental-sensor/depart/depart.pde"></canvas>
+    
 </body>
 </html>

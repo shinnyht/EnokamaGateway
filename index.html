@@ -1,43 +1,47 @@
 <html style="background-color: black;">
 <head>
-	<!-- <title>ClouT Enoshimap Demo</title> -->
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-	<meta http-equiv="Content-Script-Type" content="text/javascript; charset=utf-8">
-	<title>ClouT Enoshimap Demo</title>
-	<script src="./dist/Enoshimap.js"></script>
-	<style type="text/css">
-		<!--
-		* {
-			color: white;
-		}
-		body {
-			background-color: black;
-		}
-		-->
-	</style>
+    <!-- <title>ClouT Enoshimap Demo</title> -->
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="Content-Script-Type" content="text/javascript; charset=utf-8">
+    <title>ClouT Enoshimap Demo</title>
+    <script src="./dist/Enoshimap.js"></script>
+    <style type="text/css">
+        <!--
+        * {
+            color: white;
+        }
+        body {
+            background-color: black;
+        }
+        -->
+    </style>
 </head>
 <body>
-	<h1>江の鎌ゲートコンテンツ案</h1>
-	<ul>
-		<li><a href="./fundamental-sensor/weather/index.html">今日の天気</a></li>
-		<li><a href="./fundamental-sensor/realtime-weather/index.html">現在の天気</a></li>
-		<li><a href="./fundamental-sensor/nextday-weather/index.html">明日の天気</a></li>
-		<li><a href="./fundamental-sensor/depart/index.html">江ノ電の発車時刻</a></li>
-		<li><a href="./fundamental-sensor/wind/index.html">風邪の強さ</a></li>
-		<!--		<li><a href="./fundamental-sensor/star/index.html">Can we see the stars tonight?</a></li>-->
-		<li><a href="./fundamental-sensor/sunset/index.html">今日の日の入り時間</a></li>
-		<li><a href="./fundamental-sensor/ultraviolet/index.html">紫外線の強さ</a></li>
-		<li><a href="./fundamental-sensor/specialday/index.html">今日は何の日？</a></li>
-		<li><a href="./fundamental-sensor/flower/index.html">今日の花は？</a></li>
-		<li><a href="./processed-sensor/train/index.html">列車運行情報</a></li>
-		<li><a href="./processed-sensor/star/index.html">今夜の星の様子</a></li>
-		<li><a href="./processed-sensor/shirasu/index.html">今日のしらす漁獲量</a></li>
+    <h1>江の鎌ゲートコンテンツ案</h1>
+    <ul>
+        <li><a href="./fundamental-sensor/similarity-hawaii/index.html">どれぐらいハワイ？</a></li>
+        <li><a href="./fundamental-sensor/weather/index.html">今日の天気</a></li>
+        <li><a href="./fundamental-sensor/realtime-weather/index.html">現在の天気</a></li>
+        <li><a href="./fundamental-sensor/wind/index.html">風邪の強さ</a></li>
         <!--
-		<li><a href="./processed-sensor/condition/index.html">江ノ島快適度</a></li>
-		<li><a href="./processed-sensor/GetAllDevices/index.html">Get all devices</a></li>
+        <li><a href="./fundamental-sensor/nextday-weather/index.html">明日の天気</a></li>
+        <li><a href="./fundamental-sensor/depart/index.html">江ノ電の発車時刻</a></li>
+        <li><a href="./fundamental-sensor/star/index.html">Can we see the stars tonight?</a></li>
+        -->
+        <li><a href="./fundamental-sensor/sunset/index.html">今日の日の入り時間</a></li>
+        <li><a href="./fundamental-sensor/ultraviolet/index.html">紫外線の強さ</a></li>
+        <li><a href="./fundamental-sensor/specialday/index.html">今日は何の日？</a></li>
+        <li><a href="./fundamental-sensor/flower/index.html">今日の花は？</a></li>
+        <li><a href="./fundamental-sensor/similarity-tahiti/index.html">どれぐらいタヒチ？</a></li>
+        <li><a href="./processed-sensor/star/index.html">今夜の星の様子</a></li>
+        <li><a href="./processed-sensor/shirasu/index.html">今日のしらす漁獲量</a></li>
+        <!--
+        <li><a href="./processed-sensor/train/index.html">列車運行情報</a></li>
+        <li><a href="./processed-sensor/condition/index.html">江ノ島快適度</a></li>
+        <li><a href="./processed-sensor/GetAllDevices/index.html">Get all devices</a></li>
         //-->
-	</ul>
-	<canvas data-processing-sources="./fundamental-sensor/depart/depart.pde"></canvas>
-	
+    </ul>
+    <canvas data-processing-sources="./fundamental-sensor/depart/depart.pde"></canvas>
+    
 </body>
 </html>
