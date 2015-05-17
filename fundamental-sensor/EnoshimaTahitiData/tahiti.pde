@@ -22,7 +22,7 @@ void setup() {
 void draw(){
 	timer++;
 	drawBackground();
-	drawHawaii();
+	drawTahiti();
 	drawBubble();
 	drawText();
 }
@@ -31,7 +31,7 @@ void drawBackground() {
 	background(0);
 }
 
-void drawHawaii() {
+void drawTahiti() {
 	if (timer % 20 == 0) {
 		if (small) {
 			small = false;
@@ -42,15 +42,15 @@ void drawHawaii() {
 
 	String w = yashi;
 	if (small) {
-		drawImage(w, 0, 0, 600, 600);
+		drawImage(w, 0, 0, 500, 500);
 	} else {
-		drawImage(w, 0, 10, 600, 600);
+		drawImage(w, 0, 10, 500, 500);
 	}
 }
 
 void drawBubble(){
 	x = bubble;
-	drawImage(x, 550, 50, 500, 700);
+	drawImage(x, 550, 50, 500, 450);
 }
 
 void drawText(){
@@ -73,35 +73,34 @@ void drawText(){
 void drawTextData(){
 	fill(0, 0, 0);
 	textSize(40);
-	text("江ノ島", 680, 170);
+	text("江の島", 680, 170);
 	text("タヒチ", 850, 170);
 	text("天気", 600, 220);
 	text("気温", 600, 290);
 	text("湿度", 600, 360);
 	text("風速", 600, 430);
-	text("a", 600, 500);
 	text(getEnoshimaWeather(), 700, 220);
 	text(getTahitiWeather(), 870, 220);
-	text(getEnoshimaTemp(), 700, 290);
-	text(getTahitiTemp(), 870, 290);
-	text(getEnoshimaHumi(), 700, 360);
-	text(getTahitiHumi(), 870, 360);
-	text(getEnoshimaWind(), 700, 430);
-	text(getTahitiWind(), 870, 430);
+	text(getEnoshimaTemp() + "℃", 700, 290);
+	text(getTahitiTemp() + "℃", 870, 290);
+	text(getEnoshimaHumi() + "％", 700, 360);
+	text(getTahitiHumi() + "％", 870, 360);
+	text(getEnoshimaWind() + "m/s", 700, 430);
+	text(getTahitiWind() + "m/s", 870, 430);
 }
 
 void drawTextQ(){
 	fill(0, 0, 0);
 	textSize(55);
 	text("今日の", 600, 150);
-	text("江ノ島とハワイの", 600, 220);
+	text("江の島とタヒチの", 600, 220);
 	text("似ている度は？", 600, 290);
 }
 
 void drawTextA(){
-	float luigi = getEnoshimaHawaii();
-	String word = getEnoshimaHawaiiWord();
-	String word2 = getEnoshimaHawaiiWord2();
+	float luigi = getEnoshimaTahiti();
+	String word = getEnoshimaTahitiWord();
+	String word2 = getEnoshimaTahitiWord2();
 	fill(255, 0, 0);
 	textSize(70);
 	text(luigi + "％", 600, 160);
@@ -114,7 +113,7 @@ void drawTextA(){
 void drawNote(){
 	fill(0, 0, 0);
 	textSize(20);
-	text("「似ている度」は江ノ島とハワイの本日の天候", 600, 340);
+	text("「似ている度」は江の島とタヒチの本日の天候", 600, 340);
 	text("（天気、気温、湿度、風速）をもとに算出して", 600, 370);
 	text("おります", 600, 400);
 }
@@ -128,5 +127,3 @@ void drawImage(String imgPath, x, y, w, h) {
 	PImage img = loadImage(imgPath);
 	image(img, x, y, w, h);
 }
-
-

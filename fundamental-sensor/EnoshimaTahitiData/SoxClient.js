@@ -16,7 +16,7 @@ EnoshimaSensorInfo.humidityH =  0;
 EnoshimaSensorInfo.windH = 0;
 EnoshimaSensorInfo.luigi = 0;
 EnoshimaSensorInfo.word = "似ている！";
-EnoshimaSensorInfo.word2 = "ハワイらしさを感じる"
+EnoshimaSensorInfo.word2 = "タヒチらしさを感じる"
 
 /*
  * (EDIT) Prepare getter methods to call from processing.js
@@ -38,7 +38,19 @@ function getEnoshimaTahitiWord2(){
 }
 
 function getEnoshimaWeather(){
-	return parseFloat(EnoshimaSensorInfo.weather);
+	if(parseInt(EnoshimaSensorInfo.weather) == 0){
+		return "晴れ";		
+	} else if(parseInt(EnoshimaSensorInfo.weather) == 1){
+		return "晴-曇";		
+	} else if(parseInt(EnoshimaSensorInfo.weather) == 2){
+		return "曇り";		
+	} else if(parseInt(EnoshimaSensorInfo.weather) == 3){
+		return "曇-雨";		
+	} else if(parseInt(EnoshimaSensorInfo.weather) == 4){
+		return "雨";		
+	} else {
+		return "雪";		
+	}
 }
 
 function getEnoshimaTemp(){
@@ -54,8 +66,22 @@ function getEnoshimaWind(){
 }
 
 function getTahitiWeather(){
-	return parseFloat(EnoshimaSensorInfo.weatherH);		
+	if(parseInt(EnoshimaSensorInfo.weatherH) == 0){
+		return "晴れ";		
+	} else if(parseInt(EnoshimaSensorInfo.weatherH) == 1){
+		return "晴-曇";		
+	} else if(parseInt(EnoshimaSensorInfo.weatherH) == 2){
+		return "曇り";		
+	} else if(parseInt(EnoshimaSensorInfo.weatherH) == 3){
+		return "曇-雨";		
+	} else if(parseInt(EnoshimaSensorInfo.weatherH) == 4){
+		return "雨";		
+	} else {
+		return "雪";		
+	}
+
 }
+
 
 function getTahitiTemp(){
 	return parseFloat(EnoshimaSensorInfo.temperatureH);		
@@ -97,19 +123,19 @@ function SimilarityCalculation(){
 	}
 	if(luigi >= 80){
 		EnoshimaSensorInfo.word = "すごい似ている！"
-		EnoshimaSensorInfo.word2 = "気分はハワイだね"
+		EnoshimaSensorInfo.word2 = "気分はタヒチだね"
 	} else if(luigi >= 60){
 		EnoshimaSensorInfo.word = "似ている！"
-		EnoshimaSensorInfo.word2 = "ハワイらしさを感じる"
+		EnoshimaSensorInfo.word2 = "タヒチらしさを感じる"
 	} else if(luigi >= 40){
 		EnoshimaSensorInfo.word = "少し似ている！"
-		EnoshimaSensorInfo.word2 = "江ノ島時々ハワイ"
+		EnoshimaSensorInfo.word2 = "江ノ島時々タヒチ"
 	} else if(luigi >= 20){
 		EnoshimaSensorInfo.word = "普通"
-		EnoshimaSensorInfo.word2 = "ハワイを探そう！"
+		EnoshimaSensorInfo.word2 = "タヒチを探そう！"
 	} else {
 		EnoshimaSensorInfo.word = "残念"
-		EnoshimaSensorInfo.word2 = "ハワイらしさは少ない"
+		EnoshimaSensorInfo.word2 = "タヒチらしさは少ない"
 	}
 }
 
