@@ -58,7 +58,12 @@ function SimilarityCalculation(){
 	fukaiH = Math.floor(fukaiH * 10) /10;
 	var luigi = 100 - 0.2 * Math.pow(fukai - fukaiH, 2) - 2 * Math.pow(weat -weatH, 2) - Math.pow(wind - windH, 2);
 	luigi = Math.floor(luigi * 10) / 10;
+	if(luigi >= 30){
 	EnoshimaSensorInfo.luigi = luigi;
+	}else{
+		EnoshimaSensorInfo.luigi = 30.0;
+		luigi = 30;	
+	}
 	if(luigi >= 80){
 		EnoshimaSensorInfo.word = "すごい似ている！"
 		EnoshimaSensorInfo.word2 = "気分はハワイだね"
@@ -67,7 +72,7 @@ function SimilarityCalculation(){
 		EnoshimaSensorInfo.word2 = "ハワイらしさを感じる"
 	} else if(luigi >= 40){
 		EnoshimaSensorInfo.word = "少し似ている！"
-		EnoshimaSensorInfo.word2 = "江ノ島時々ハワイ"
+		EnoshimaSensorInfo.word2 = "江の島時々ハワイ"
 	} else if(luigi >= 20){
 		EnoshimaSensorInfo.word = "普通"
 		EnoshimaSensorInfo.word2 = "ハワイを探そう！"
