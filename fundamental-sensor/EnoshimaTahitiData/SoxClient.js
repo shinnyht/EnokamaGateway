@@ -129,7 +129,7 @@ function SimilarityCalculation(){
 		EnoshimaSensorInfo.word2 = "タヒチらしさを感じる"
 	} else if(luigi >= 40){
 		EnoshimaSensorInfo.word = "少し似ている！"
-		EnoshimaSensorInfo.word2 = "江ノ島時々タヒチ"
+		EnoshimaSensorInfo.word2 = "江の島時々タヒチ"
 	} else if(luigi >= 20){
 		EnoshimaSensorInfo.word = "普通"
 		EnoshimaSensorInfo.word2 = "タヒチを探そう！"
