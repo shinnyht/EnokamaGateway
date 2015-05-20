@@ -16,8 +16,9 @@ EnoshimaSensorInfo.temperatureH = 23.9;
 EnoshimaSensorInfo.humidityH =  91.0;
 EnoshimaSensorInfo.windH = 2.0;
 EnoshimaSensorInfo.luigi = 82.3;
-EnoshimaSensorInfo.word = "似ている！";
-EnoshimaSensorInfo.word2 = "genovaらしさを感じる"
+EnoshimaSensorInfo.word = "It is Fairy Similarity.";
+EnoshimaSensorInfo.word2 = "Feel like Genova here!";
+EnoshimaSensorInfo.word3 = "";
 
 /*
  * (EDIT) Prepare getter methods to call from processing.js
@@ -36,6 +37,9 @@ function getEnoshimaGenovaWord(){
 
 function getEnoshimaGenovaWord2(){
 	return EnoshimaSensorInfo.word2;
+}
+function getEnoshimaGenovaWord3(){
+	return EnoshimaSensorInfo.word3;		
 }
 
 /* 0: sunny, 1: cloudy, 2: rainy 3: sunny-cloudy 4:cloudy-rainy */
@@ -67,20 +71,26 @@ function SimilarityCalculation(){
 		luigi = 30;	
 	}
 	if(luigi >= 80){
-		EnoshimaSensorInfo.word = "すごい似ている！"
-		EnoshimaSensorInfo.word2 = "気分はgenovaだね"
+		EnoshimaSensorInfo.word = "It is Pretty Similarity.";
+		EnoshimaSensorInfo.word2 = "Absolutely Feel like";
+		EnoshimaSensorInfo.word3 = "Genova here!";
+		
 	} else if(luigi >= 60){
-		EnoshimaSensorInfo.word = "似ている！"
-		EnoshimaSensorInfo.word2 = "genovaらしさを感じる"
+		EnoshimaSensorInfo.word = "It is Similarity.";
+		EnoshimaSensorInfo.word2 = "Feel like Santander here!";
+		EnoshimaSensorInfo.word3 = "";
 	} else if(luigi >= 40){
-		EnoshimaSensorInfo.word = "少し似ている！"
-		EnoshimaSensorInfo.word2 = "江の島時々genova"
+		EnoshimaSensorInfo.word = "It is Similar a Little.";
+		EnoshimaSensorInfo.word2 = "Fairy \'Enoshima\',";
+		EnoshimaSensorInfo.word3 = "Occaionakky \'Genova\'.";
 	} else if(luigi >= 20){
-		EnoshimaSensorInfo.word = "普通"
-		EnoshimaSensorInfo.word2 = "genovaを探そう！"
+		EnoshimaSensorInfo.word = "As Usual.";
+		EnoshimaSensorInfo.word2 = "Let\'s Look for Things";
+		EnoshimaSensorInfo.word3 = "like Santander.";
 	} else {
-		EnoshimaSensorInfo.word = "残念"
-		EnoshimaSensorInfo.word2 = "genovaらしさは少ない"
+		EnoshimaSensorInfo.word = "Sorry.";
+		EnoshimaSensorInfo.word2 = "Feel Only a Little bit";
+		EnoshimaSensorInfo.word3 = "of Santander.";
 	}
 }
 
@@ -123,7 +133,7 @@ function eventListener(device, transducer) {
 		else if (transducer.id == "平均風速"){
 			EnoshimaSensorInfo.wind = transducer.sensorData.rawValue;
 		}
-	}else if(device=="genovaData"){
+	}else if(device=="genovaData2"){
 		if (transducer.id == "weather") {
 			var valueH = String(transducer.sensorData.rawValue);
 			if (valueH.indexOf("晴") > -1 && valueH.indexOf("曇") > -1) {
@@ -166,7 +176,7 @@ $(document).ready(function() {
         status("Connected: " + soxEvent.soxClient);
         client.unsubscribeAll();
 
-        var deviceNames = ["江ノ島今日の天気", "EnoshimaYachtHarbour", "genova5", "genovaData"];
+        var deviceNames = ["江ノ島今日の天気", "EnoshimaYachtHarbour", "genova5", "genovaData2"];
 
         if (!client.subscribeDevice()) {
             status("[SoxClient.js] Counldn't subscribe device: " + soxEvent.soxClient);

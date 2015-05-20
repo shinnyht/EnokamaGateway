@@ -50,7 +50,7 @@ void drawSantander() {
 
 void drawBubble(){
 	x = bubble;
-	drawImage(x, 550, 50, 500, 380);
+	drawImage(x, 550, 50, 600, 450);
 }
 
 void drawText(){
@@ -73,33 +73,35 @@ void drawText(){
 // takamasa edit
 void drawTextQ(){
 	fill(0, 0, 0);
-	textSize(55);
-	text("今日の", 600, 150);
-	text("江の島とsantanderの", 600, 220);
-	text("似ている度は？", 600, 290);
+	textSize(40);
+	text("Today\'s Enoshima and", 600, 150);
+	text("Santander\'s Similarity", 600, 220);
+	text("is...", 600, 290);
 }
 
 void drawTextA(){
 	float luigi = getEnoshimaSantander();
 	String word = getEnoshimaSantanderWord();
 	String word2 = getEnoshimaSantanderWord2();
+	String word3 = getEnoshimaSantanderWord3();
 	fill(255, 0, 0);
 	textSize(70);
 	text(luigi + "％", 600, 160);
 	fill(0, 0, 0);
-	textSize(45);
+	textSize(35);
 	text(word, 590, 240);
 	text(word2, 590, 300);
+	text(word3, 590, 360);
 }
 
 
 // takamasa edit
 void drawNote(){
 	fill(0, 0, 0);
-	textSize(20);
-	text("「似ている度」は江の島とsantanderの本日の天候", 600, 340);
-	text("（天気、気温、湿度、風速）をもとに算出して", 600, 370);
-	text("おります", 600, 400);
+	textSize(18);
+	text("Similarity is calculated by today\'s Enoshima and", 600, 400);
+	text("Santander's Weather condition(Weather, Temperature", 600, 430);
+	text("Humidity and Wind Speed).", 600, 460);
 }
 
 void drawImage(String imgPath, x, y) {

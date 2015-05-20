@@ -127,7 +127,7 @@ function eventListener(device, transducer) {
 			if (valueH.indexOf("晴") > -1 && valueH.indexOf("曇") > -1) {
 				EnoshimaSensorInfo.weatherH = 1;
 			}
-			else if (valueH.indexOf("雨") > -1 && valueH.indexOf("雲") > -1){
+			else if (valueH.indexOf("雨") > -1 && valueH.indexOf("曇") > -1){
 				EnoshimaSensorInfo.weatherH = 3;
 			}
 			else if (valueH.indexOf("晴") > -1) {

@@ -50,7 +50,7 @@ void drawSantander() {
 
 void drawBubble(){
 	x = bubble;
-	drawImage(x, 550, 50, 500, 450);
+	drawImage(x, 500, 50, 700, 450);
 }
 
 void drawText(){
@@ -74,20 +74,25 @@ void drawText(){
 void drawTextData(){
 	fill(0, 0, 0);
 	textSize(40);
-	text("江の島", 680, 170);
-	text("santander", 850, 170);
-	text("天気", 600, 220);
-	text("気温", 600, 290);
-	text("湿度", 600, 360);
-	text("風速", 600, 430);
-	text(getEnoshimaWeather(), 700, 220);
-	text(getSantanderWeather(), 870, 220);
-	text(getEnoshimaTemp() + "℃", 700, 290);
-	text(getSantanderTemp() + "℃", 870, 290);
-	text(getEnoshimaHumi() + "％", 700, 360);
-	text(getSantanderHumi() + "％", 870, 360);
-	text(getEnoshimaWind() + "m/s", 700, 430);
-	text(getSantanderWind() + "m/s", 870, 430);
+	text("Enoshima", 700, 170);
+	text("Santander", 920, 170);
+	textSize(30);
+	text("Weather", 550, 220);
+	textSize(25);
+	text("Temperature", 550, 290);
+	textSize(30);
+	text("Humidity", 550, 360);
+	text("Wind Speed", 550, 430);
+	textSize(30);
+	text(getEnoshimaWeather(), 710, 220);
+	text(getSantanderWeather(), 930, 220);
+	textSize(40);
+	text(getEnoshimaTemp() + "℃", 750, 290);
+	text(getSantanderTemp() + "℃", 970, 290);
+	text(getEnoshimaHumi() + "％", 750, 360);
+	text(getSantanderHumi() + "％", 970, 360);
+	text(getEnoshimaWind() + "m/s", 750, 430);
+	text(getSantanderWind() + "m/s", 970, 430);
 }
 //Not used
 void drawTextQ(){

@@ -40,17 +40,17 @@ function getEnoshimaGenovaWord2(){
 // takamasa edit
 function getEnoshimaWeather(){
 	if(parseInt(EnoshimaSensorInfo.weather) == 0){
-		return "晴れ";		
+		return "Sunny";		
 	} else if(parseInt(EnoshimaSensorInfo.weather) == 1){
-		return "晴-曇";		
+		return "Sunny-Cloudy";		
 	} else if(parseInt(EnoshimaSensorInfo.weather) == 2){
-		return "曇り";		
+		return "Cloudy";		
 	} else if(parseInt(EnoshimaSensorInfo.weather) == 3){
-		return "曇-雨";		
+		return "Cloudy-Rainy";		
 	} else if(parseInt(EnoshimaSensorInfo.weather) == 4){
-		return "雨";		
+		return "Rainy";
 	} else {
-		return "雪";		
+		return "Snowy";
 	}
 }
 
@@ -70,17 +70,17 @@ function getEnoshimaWind(){
 // takamasa edit
 function getGenovaWeather(){
 	if(parseInt(EnoshimaSensorInfo.weatherH) == 0){
-		return "晴れ";		
+		return "Sunny";		
 	} else if(parseInt(EnoshimaSensorInfo.weatherH) == 1){
-		return "晴-曇";		
+		return "Sunny-Cloudy";		
 	} else if(parseInt(EnoshimaSensorInfo.weatherH) == 2){
-		return "曇り";		
+		return "Cloudy";		
 	} else if(parseInt(EnoshimaSensorInfo.weatherH) == 3){
-		return "曇-雨";		
+		return "Cloudy-Rainy";		
 	} else if(parseInt(EnoshimaSensorInfo.weatherH) == 4){
-		return "雨";		
+		return "Rainy";		
 	} else {
-		return "雪";		
+		return "Snowy";		
 	}
 
 }
@@ -159,7 +159,7 @@ function eventListener(device, transducer) {
                 EnoshimaSensorInfo.weather = 3;
             }
             else if (value.indexOf("晴") > -1) {
-                EnoshimaSensorInfo.weather = 5;//0;
+                EnoshimaSensorInfo.weather = 0;
             }
             else if (value.indexOf("曇") > -1) {
                 EnoshimaSensorInfo.weather = 2;
@@ -181,19 +181,19 @@ function eventListener(device, transducer) {
 		else if (transducer.id == "平均風速"){
 			EnoshimaSensorInfo.wind = transducer.sensorData.rawValue;
 		}
-	}else if(device=="genovaData"){
+	}else if(device=="genovaData2"){
 		if (transducer.id == "weather") {
 			var valueH = String(transducer.sensorData.rawValue);
 			if (valueH.indexOf("晴") > -1 && valueH.indexOf("曇") > -1) {
 				EnoshimaSensorInfo.weatherH = 1;
 			}
-			else if (valueH.indexOf("雨") > -1 && valueH.indexOf("雲") > -1){
+			else if (valueH.indexOf("雨") > -1 && valueH.indexOf("曇") > -1){
 				EnoshimaSensorInfo.weatherH = 3;
 			}
 			else if (valueH.indexOf("晴") > -1) {
 				EnoshimaSensorInfo.weatherH = 0;
 			}
-			else if (valueH.indexOf("雲") > -1) {
+			else if (valueH.indexOf("曇") > -1) {
 				EnoshimaSensorInfo.weatherH = 2;
 			}
 			else if (valueH.indexOf("雨") > -1){
@@ -224,7 +224,7 @@ $(document).ready(function() {
         status("Connected: " + soxEvent.soxClient);
         client.unsubscribeAll();
 
-        var deviceNames = ["江ノ島今日の天気", "EnoshimaYachtHarbour", "genovadata", "genova5"];
+        var deviceNames = ["江ノ島今日の天気", "EnoshimaYachtHarbour", "genovaData2", "genova5"];
 
         if (!client.subscribeDevice()) {
             status("[SoxClient.js] Counldn't subscribe device: " + soxEvent.soxClient);
