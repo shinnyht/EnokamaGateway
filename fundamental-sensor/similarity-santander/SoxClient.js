@@ -82,7 +82,7 @@ function SimilarityCalculation(){
 	} else if(luigi >= 40){
 		EnoshimaSensorInfo.word = "It is Similar a Little.";
 		EnoshimaSensorInfo.word2 = "Fairy \'Enoshima\',";
-		EnoshimaSensorInfo.word3 = "Occaionakky \'Santander\'.";
+		EnoshimaSensorInfo.word3 = "Occaionally \'Santander\'.";
 	} else if(luigi >= 20){
 		EnoshimaSensorInfo.word = "As Usual.";
 		EnoshimaSensorInfo.word2 = "Let\'s Look for Things";
