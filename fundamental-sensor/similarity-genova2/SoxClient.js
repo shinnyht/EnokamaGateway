@@ -17,7 +17,7 @@ EnoshimaSensorInfo.humidityH =  91.0;
 EnoshimaSensorInfo.windH = 2.0;
 EnoshimaSensorInfo.luigi = 82.3;
 EnoshimaSensorInfo.word = "It is Fairy Similarity.";
-EnoshimaSensorInfo.word2 = "Feel like Santander here!"
+EnoshimaSensorInfo.word2 = "Feel like Genova here!";
 EnoshimaSensorInfo.word3 = "";
 
 /*
@@ -27,19 +27,18 @@ EnoshimaSensorInfo.word3 = "";
  *
  */
 
-function getEnoshimaSantander(){
+function getEnoshimaGenova(){
 	return EnoshimaSensorInfo.luigi;
 }
 
-function getEnoshimaSantanderWord(){
+function getEnoshimaGenovaWord(){
 	return EnoshimaSensorInfo.word;
 }
 
-function getEnoshimaSantanderWord2(){
+function getEnoshimaGenovaWord2(){
 	return EnoshimaSensorInfo.word2;
 }
-
-function getEnoshimaSantanderWord3(){
+function getEnoshimaGenovaWord3(){
 	return EnoshimaSensorInfo.word3;		
 }
 
@@ -72,9 +71,10 @@ function SimilarityCalculation(){
 		luigi = 30;	
 	}
 	if(luigi >= 80){
-		EnoshimaSensorInfo.word = "It is Pretty Similarity";
+		EnoshimaSensorInfo.word = "It is Pretty Similarity.";
 		EnoshimaSensorInfo.word2 = "Absolutely Feel like";
-		EnoshimaSensorInfo.word3 = "Santander here!";
+		EnoshimaSensorInfo.word3 = "Genova here!";
+		
 	} else if(luigi >= 60){
 		EnoshimaSensorInfo.word = "It is Similarity.";
 		EnoshimaSensorInfo.word2 = "Feel like Santander here!";
@@ -82,7 +82,7 @@ function SimilarityCalculation(){
 	} else if(luigi >= 40){
 		EnoshimaSensorInfo.word = "It is Similar a Little.";
 		EnoshimaSensorInfo.word2 = "Fairy \'Enoshima\',";
-		EnoshimaSensorInfo.word3 = "Occaionally \'Santander\'.";
+		EnoshimaSensorInfo.word3 = "Occaionally \'Genova\'.";
 	} else if(luigi >= 20){
 		EnoshimaSensorInfo.word = "As Usual.";
 		EnoshimaSensorInfo.word2 = "Let\'s Look for Things";
@@ -106,7 +106,6 @@ function eventListener(device, transducer) {
 			var value = String(transducer.sensorData.rawValue);
             if (value.indexOf("晴") > -1 && value.indexOf("曇") > -1) {
                 EnoshimaSensorInfo.weather = 1;
-				EnoshimaSensorInfo.word3 = "here!";
             }
             else if (value.indexOf("雨") > -1 && value.indexOf("曇") > -1) {
                 EnoshimaSensorInfo.weather = 3;
@@ -134,7 +133,7 @@ function eventListener(device, transducer) {
 		else if (transducer.id == "平均風速"){
 			EnoshimaSensorInfo.wind = transducer.sensorData.rawValue;
 		}
-	}else if(device=="santanderData2"){
+	}else if(device=="genovaData2"){
 		if (transducer.id == "weather") {
 			var valueH = String(transducer.sensorData.rawValue);
 			if (valueH.indexOf("晴") > -1 && valueH.indexOf("曇") > -1) {
@@ -155,15 +154,14 @@ function eventListener(device, transducer) {
 			else {
 				EnoshimaSensorInfo.weatherH = 5;
 			}
+		}
+	}else if(device=="genova5"){
+		if (transducer.id == "temperature"){
+			EnoshimaSensorInfo.temperatureH = transducer.sensorData.rawValue;
 		} else if (transducer.id == "humidity"){
 			EnoshimaSensorInfo.humidityH = transducer.sensorData.rawValue;
 		} else if (transducer.id == "wind_speed"){
 			EnoshimaSensorInfo.windH = transducer.sensorData.rawValue;
-		}
-
-	}else if(device=="santander173"){
-		if (transducer.id == "temperature"){
-			EnoshimaSensorInfo.temperatureH = transducer.sensorData.rawValue;
 		}
 	}
 	SimilarityCalculation();
@@ -178,7 +176,7 @@ $(document).ready(function() {
         status("Connected: " + soxEvent.soxClient);
         client.unsubscribeAll();
 
-        var deviceNames = ["江ノ島今日の天気", "EnoshimaYachtHarbour", "santander173", "santanderData2"];
+        var deviceNames = ["江ノ島今日の天気", "EnoshimaYachtHarbour", "genova5", "genovaData2"];
 
         if (!client.subscribeDevice()) {
             status("[SoxClient.js] Counldn't subscribe device: " + soxEvent.soxClient);
