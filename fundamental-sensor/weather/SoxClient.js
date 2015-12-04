@@ -1,8 +1,6 @@
 // server info (DO NOT EDIT)
 var boshService = "http://sox.ht.sfc.keio.ac.jp:5280/http-bind/";
 var xmppServer = "sox.ht.sfc.keio.ac.jp";
-var jid = "cloutfujisawa@sox.ht.sfc.keio.ac.jp";
-var password = "pAnAke!o";
 
 // (EDIT) Prepare varibles (but these cannot be used in processing.js)
 var EnoshimaSensorInfo = {};
@@ -55,7 +53,7 @@ function getNextDeparture() {
 // Called when received sensor data
 function eventListener(device, transducer) {
     // (EDIT) check if the DEVICE name is the one you want
-    if(device=="江ノ島今日の天気"){
+    if(device=="湘南・江ノ島の海の天気"){
         /*
          * (EDIT) change below statements depending on
          * which TRANSDUCER & what VALUE you want to use
@@ -101,21 +99,33 @@ function eventListener(device, transducer) {
 
 // Create new SoxClient when page is loaded
 $(document).ready(function() {
-    var client = new SoxClient(boshService, xmppServer, jid, password);
+    var client = new SoxClient(boshService, xmppServer);
     var soxEventListener = new SoxEventListener();
+
     soxEventListener.connected = function(soxEvent) {
         console.log("[SoxClient.js]" + soxEvent.soxClient);
         status("Connected: " + soxEvent.soxClient);
         client.unsubscribeAll();
 
-        var device = new Device("江ノ島今日の天気");
+        var device = new Device("湘南・江ノ島の海の天気");
 
-        if (!client.subscribeDevice(device)) {
-            status("[SoxClient.js] Counldn't subscribe device: " + soxEvent.soxClient);
+        /* クライアントに繋がったら、デバイスにサブスクライブする */
+        if(!client.subscribeDevice(device)){
+            /* サーバに繋がってない場合などで、要求を送信できなかった場合はfalseが返ってくる */
+            status("Couldn't send subscription request: "+device);
         }
+         
     };
     soxEventListener.connectionFailed = function(soxEvent) {
         status("Connection Failed: " + soxEvent.soxClient);
+    };
+    soxEventListener.resloved = function(soxEvent) {
+        status("Device Resolved: " + soxEvent.soxClient);
+    };
+    soxEventListener.resloveFailed = function(soxEvent) {
+        status("Resolve Failed: " + soxEvent.device +
+            "code=" + soxEvent.errorCode +
+            " type=" + soxEvent.errorType);
     };
     soxEventListener.subscribed = function(soxEvent) {
         status("Subscribed: " + soxEvent.device);
