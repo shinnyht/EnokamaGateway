@@ -5,7 +5,7 @@ module.exports = function(grunt) {
         concat: {
             enoshimap_sox_client: {
                 src: [
-                    './SoxJS/js/lib/jquery-1.10.2.js',
+                    './SoxJS/js/lib/jquery-1.11.3.min.js',
                     './SoxJS/js/lib/jquery.dropotron.min.js',
                     './SoxJS/js/lib/config.js',
                     './SoxJS/js/lib/underscore-min.js',
@@ -26,7 +26,7 @@ module.exports = function(grunt) {
             },
             enoshimap_sox_client2: {
                 src: [
-                    './SoxJS/js/lib/jquery-1.10.2.js',
+                    './SoxJS/js/lib/jquery-1.11.3.min.js',
                     './SoxJS/js/lib/jquery.dropotron.min.js',
                     './SoxJS/js/lib/config.js',
                     './SoxJS/js/lib/underscore-min.js',
