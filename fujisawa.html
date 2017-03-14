@@ -1,0 +1,31 @@
+<html style="background-color: black;">
+<head>
+    <!-- <title>ClouT Enoshimap Demo</title> -->
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="Content-Script-Type" content="text/javascript; charset=utf-8">
+    <title>ClouT Enoshimap Demo</title>
+    <script src="./dist/Enoshimap.js"></script>
+    <style type="text/css">
+        <!--
+        * {
+            color: white;
+        }
+        body {
+            background-color: black;
+        }
+        -->
+    </style>
+</head>
+<body>
+    <h1>藤沢 ClouTコンテンツ</h1>
+    <ul>
+        <li><a href="./fujisawa-sensor/weather/index.html">湘南台 今日の天気</a></li>
+        <li><a href="./fujisawa-sensor/wind/index.html">湘南台 風の強さ</a></li>
+        <li><a href="./fujisawa-sensor/rainyday/index.html">湘南台 降水確率</a></li>
+        <li><a href="./fujisawa-sensor/nextday-weather/index.html">湘南台 明日の天気</a></li>
+        <li><a href="./fujisawa-sensor/ultraviolet/index.html">湘南台 紫外線の強さ</a></li>
+    </ul>
+    <canvas data-processing-sources="./fundamental-sensor/depart/depart.pde"></canvas>
+    
+</body>
+</html>
